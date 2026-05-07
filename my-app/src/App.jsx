@@ -1,29 +1,24 @@
-import Item from "./mis_componentes/Item"
-
+// App.jsx — array con datos quemados (hardcoded)
+import Encabezado from './componentes/Encabezado'
+import Lista from './componentes/Lista'
+import PiePagina from './componentes/PiePagina'
+import './App.css'
 function App() {
-
-  const peliculasfavoritas   = {
-    id: 1,
-    titulo: "sonic 3",
-    estrellas: 4.5,
-    genero: "ficcion",
-    visto: true
-  }
-     seriefavorita = [{
-    id: 2,
-    titulo: "flash",
-    estrellas:5.0,
-    genero: "accion",
-    visto: false
-  }]
-      
-  };
-
+  // Datos de ejemplo que simulan estar guardados
+  const entretenimiento = [
+    { id: 1, texto: "hombre araña 3", completada: false },
+    { id: 2, texto: "kimetsu no yaiba", completada: true },
+    { id: 3, texto: "one piece", completada: false }
+  ]
   return (
-    <div>
-      <Item tarea={tareaEjemplo} />
+    <div className="app">
+      <Encabezado
+        titulo="Mis favoritos"
+        subtitulo="mira las series que me gustan"
+      />
+      <Lista entretenimiento={entretenimiento} />
+      <PiePagina />
     </div>
   )
-
-
-export default App
+}
+export default App 

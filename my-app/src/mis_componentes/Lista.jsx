@@ -1,11 +1,12 @@
-// Lista.jsx — mostrará todos los items 
-function Lista() { 
-  return ( 
-    <section> 
-      <h2>Soy la lista</h2> 
-      <p>Aquí se verán todas las tareas agregadas</p> 
-    </section> 
-  ) 
-} 
-  
+// Lista.jsx — recibe tareas y pinta un Item por cada una
+import Item from './Item'
+function Lista({ entretenimiento }) {
+  return (
+    <ul className="lista">
+      {entretenimiento.map(entretenimiento => (
+        <Item key={entretenimiento.id} tarea={entretenimiento} />
+      ))}
+    </ul>
+  )
+}
 export default Lista
