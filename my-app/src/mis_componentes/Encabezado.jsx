@@ -1,11 +1,10 @@
-// Encabezado.jsx — título y presentación de la app 
-function Encabezado() { 
-return ( 
-<header>
-     <h1>Mis Tareas</h1> 
-      <p>Organiza lo que tienes que hacer hoy</p> 
-    </header> 
-  ) 
-} 
-  
-export default Encabezado 
+// Encabezado.jsx — ahora recibe titulo y subtitulo por props
+function Encabezado({ titulo, subtitulo }) {
+ return (
+ <header>
+ <h1>{titulo}</h1>
+ <p>{subtitulo}</p>
+ </header>
+ )
+}
+export default Encabezado

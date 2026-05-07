@@ -1,21 +1,29 @@
-// App.jsx — el componente principal que reúne todo 
-import Encabezado from './mis_componentes/Encabezado' 
-import Formulario from './mis_componentes/Formulario' 
-import Lista from './mis_componentes/Lista' 
-import Item from './mis_componentes/Item' 
-import PiePagina from './mis_componentes/PiePagina' 
-import './App.css' 
-  
-function App() { 
-  return ( 
-    <div className="app"> 
-      <Encabezado /> 
-      <Formulario /> 
-      <Lista /> 
-      <Item /> 
-      <PiePagina /> 
-    </div> 
-  ) 
-} 
-  
+import Item from "./mis_componentes/Item"
+
+function App() {
+
+  const peliculasfavoritas   = {
+    id: 1,
+    titulo: "sonic 3",
+    estrellas: 4.5,
+    genero: "ficcion",
+    visto: true
+  }
+     seriefavorita = [{
+    id: 2,
+    titulo: "flash",
+    estrellas:5.0,
+    genero: "accion",
+    visto: false
+  }]
+      
+  };
+
+  return (
+    <div>
+      <Item tarea={tareaEjemplo} />
+    </div>
+  )
+
+
 export default App
