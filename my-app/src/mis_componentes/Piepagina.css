@@ -1,7 +1,10 @@
 .pie-pagina {
   text-align: center;
-  color: gray;
+  color: #974d4d;
   font-size: 14px;
-  margin-top: 20px;
-  padding: 10px;
+  margin-top: 30px;
+  padding: 18px;
+  background-color: #111111;
+  border-top: 1px solid #2a2a2a;
+  border-radius: 14px 14px 0 0;
 }
