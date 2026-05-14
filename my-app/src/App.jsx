@@ -1,7 +1,7 @@
 // App.jsx — array con datos quemados (hardcoded)
-import Encabezado from './componentes/Encabezado'
-import Lista from './componentes/Lista'
-import PiePagina from './componentes/PiePagina'
+import Encabezado from './mis_componentes/Encabezado'
+import Lista from './mis_componentes/Lista'
+import PiePagina from './mis_componentes/PiePagina'
 import './App.css'
 function App() {
   // Datos de ejemplo que simulan estar guardados
