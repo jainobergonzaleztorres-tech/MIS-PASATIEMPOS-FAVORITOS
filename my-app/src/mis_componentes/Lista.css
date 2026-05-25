@@ -1,7 +1,9 @@
 /* Lista.css */
 .lista {
- list-style: none;
- padding: 0 16px;
- margin: 16px auto;
- max-width: 600px;
+  width: 100%;
+  max-width: 1000px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

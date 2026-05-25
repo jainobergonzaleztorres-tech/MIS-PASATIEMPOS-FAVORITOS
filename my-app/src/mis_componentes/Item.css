@@ -19,12 +19,12 @@
 .item__texto {
   font-size: 16px;
   margin: 0;
-  color: white;
+  color: rgb(180, 6, 6);
   font-weight: 500;
 }
 
 .item__estado {
   font-size: 13px;
-  color: #b3b3b3;
+  color: rgb(180, 6, 6);
   margin: 0;
 }

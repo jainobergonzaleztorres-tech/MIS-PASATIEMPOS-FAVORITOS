@@ -7,10 +7,10 @@
   margin-bottom: 20px;
 }
 .encabezado__titulo {
- color: #ffffff;
+ color: rgb(180, 6, 6);
   margin: 0;
   font-size: 32px;
 }
 .encabezado__subtitulo {
-   color: #9ca3af;
+   color: rgb(180, 6, 6);
 }

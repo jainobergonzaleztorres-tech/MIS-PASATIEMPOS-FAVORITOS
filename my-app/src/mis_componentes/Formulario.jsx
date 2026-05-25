@@ -1,9 +1,15 @@
-// Formulario.jsx — aquí se agregarán nuevos elementos 
+// Formulario.jsx — aquí se agregarán nuevos elementos
+ 
 function Formulario() { 
   return ( 
     <section> 
-      <h2>Soy el formulario</h2> 
-      <p>Aquí vamos a poder agregar tareas nuevas</p> 
+      <p>Aqui podras agregar a favoritos tu series o peliculas</p>
+      <input type="text" placeholder="escribe tu serie o pelicula favorita" />
+      <button> ➕ </button>
+      <br /><br/>
+      <input type="text" placeholder="Buscar favoritos" />
+      <button>🔎</button>
+      <button>Ordenar</button>
     </section> 
   ) 
 } 
