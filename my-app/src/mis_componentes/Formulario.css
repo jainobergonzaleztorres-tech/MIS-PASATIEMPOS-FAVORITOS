@@ -30,3 +30,6 @@
 .formulario button:hover {
   background-color: #4338ca;
 }
+.formulario button:hover { 
+opacity: 0.9; 
+}

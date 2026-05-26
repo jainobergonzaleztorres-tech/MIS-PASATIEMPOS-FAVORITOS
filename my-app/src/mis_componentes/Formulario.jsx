@@ -1,17 +1,35 @@
-// Formulario.jsx — aquí se agregarán nuevos elementos
- 
+// Formulario.jsx — version con onSubmit 
+import { useState } from 'react' 
+import './Formulario.css' 
+  
 function Formulario() { 
+  const [nuevaTarea, setNuevaTarea] = useState("") 
+  
+  const manejarEnvio = (evento) => { 
+    // Evita que la pagina se recargue 
+    evento.preventDefault() 
+  
+    // Validacion simple 
+    if (nuevaTarea.trim() === "") { 
+      alert("Por favor escribe algo") 
+      return 
+    } 
+  
+    alert(`Favorito capturado: ${nuevaTarea}`) 
+    setNuevaTarea("") // limpia el input 
+  } 
+  
   return ( 
-    <section> 
-      <p>Aqui podras agregar a favoritos tu series o peliculas</p>
-      <input type="text" placeholder="escribe tu serie o pelicula favorita" />
-      <button> ➕ </button>
-      <br /><br/>
-      <input type="text" placeholder="Buscar favoritos" />
-      <button>🔎</button>
-      <button>Ordenar</button>
-    </section> 
+    <form className="formulario" onSubmit={manejarEnvio}> 
+      <h2>Agregar nuevo favorito</h2> 
+      <input 
+        type="text" 
+        value={nuevaTarea} 
+        onChange={(e) => setNuevaTarea(e.target.value)} 
+        placeholder="Escribe algo..." 
+      />      <button type="submit">Agregar</button> 
+    </form> 
   ) 
 } 
   
-export default Formulario
+export default Formulario 
