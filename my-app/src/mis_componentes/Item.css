@@ -28,3 +28,13 @@
   color: rgb(180, 6, 6);
   margin: 0;
 }
+/* Item.css — agregar al final */ 
+.item { 
+  cursor: pointer; 
+  transition: background-color 0.2s; 
+} 
+  
+.item--resaltado { 
+  background-color: #fff3cd; 
+  border-color: #ffc107; 
+} 

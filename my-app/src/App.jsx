@@ -27,7 +27,6 @@ function App() {
       {mostrarFormulario ? 'Ocultar formulario' : 'Agregar tarea'}
       </button>
       {mostrarFormulario && <Formulario />}
-      {/* <Formulario/> */}
       <Lista entretenimiento={entretenimiento} />
       <PiePagina />
       <Contador/>
