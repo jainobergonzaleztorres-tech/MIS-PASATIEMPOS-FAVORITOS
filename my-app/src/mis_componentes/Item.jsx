@@ -2,24 +2,26 @@
 import { useState } from 'react'
 import './Item.css'
 
-function Item({ favorito, eliminarFavorito }) {
+function Item({ favorito, eliminarFavorito, alternarCompletada }) {
   const [resaltado, setResaltado] = useState(false)
 
   const manejarCompletar = (evento) => {
     // Importante: detener la propagacion para que el click 
     // del boton no active el click del item completo 
     evento.stopPropagation()
-    alert(`Marcar como completada: ${favorito.texto}`)
+    alternarCompletada(favorito.id)
   }
 
   const manejarEliminar = (evento) => {
     evento.stopPropagation()
-    alert(`Eliminar: ${favorito.texto}`)
+    eliminarFavorito(favorito.id)
   }
 
   return (
     <article
-      className={resaltado ? 'item item--resaltado' : 'item'}
+      className={`item ${resaltado ? 'item--resaltado' : ''
+        } ${favorito.completada ? 'item--completada' : ''
+        }`}
       onClick={() => setResaltado(!resaltado)}
     >
       <div className="item__contenido">
@@ -29,8 +31,13 @@ function Item({ favorito, eliminarFavorito }) {
         </p>
       </div>
       <div className="item__acciones">
-        <button onClick={manejarCompletar}>✓</button>
-        <button onClick={() => eliminarFavorito(favorito.id)}>✕</button>
+        <button
+          className='boton-completar'
+          onClick={manejarCompletar}
+        >
+          {favorito.completada ? '↺' : '✓'}
+        </button>
+        <button className='boton-eliminar' onClick={manejarEliminar}>✕</button>
       </div>
     </article>
   )

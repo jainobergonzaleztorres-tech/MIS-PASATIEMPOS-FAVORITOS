@@ -15,7 +15,7 @@ function App() {
     { id: 3, texto: "one piece", completada: false }
   ])
 
-  // 🔥 AGREGAR
+  //  AGREGAR
   const agregarFavorito = (textoNuevo) => {
     const favoritoNuevo = {
       id: crypto.randomUUID(),
@@ -26,13 +26,25 @@ function App() {
     setFavoritos(prev => [...prev, favoritoNuevo])
   }
 
-  // 🔥 ELIMINAR (FUERA, NO DENTRO)
+  //  ELIMINAR (FUERA, NO DENTRO)
   const eliminarFavorito = (idAEliminar) => {
     setFavoritos(prev =>
       prev.filter(f => f.id !== idAEliminar)
     )
   }
+  // App.jsx — agregar despues de eliminarTarea 
 
+  const alternarCompletada = (idAAlternar) => {
+    setFavoritos(favoritos.map(favorito => {
+      // Si este es el favorito que queremos modificar 
+      if (favorito.id === idAAlternar) {
+        // Devolver un objeto nuevo con completada invertida 
+        return { ...favorito, completada: !favorito.completada }
+      }
+      // Si no, devolver el favorito tal cual 
+      return favorito
+    }))
+  }
   return (
     <div className="app">
 
@@ -46,6 +58,7 @@ function App() {
       <Lista
         favoritos={favoritos}
         eliminarFavorito={eliminarFavorito}
+        alternarCompletada={alternarCompletada}
       />
 
       <PiePagina />

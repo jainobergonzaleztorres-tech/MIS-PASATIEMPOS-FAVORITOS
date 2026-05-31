@@ -1,5 +1,5 @@
 import Item from './Item'
-function Lista({ favoritos, eliminarFavorito }) {
+function Lista({ favoritos, eliminarFavorito, alternarCompletada }) {
   return (
     <ul>
       {favoritos.map(favorito => (
@@ -7,6 +7,7 @@ function Lista({ favoritos, eliminarFavorito }) {
           key={favorito.id}
           favorito={favorito}
           eliminarFavorito={eliminarFavorito}
+          alternarCompletada={alternarCompletada}
         />
       ))}
     </ul>
