@@ -4,6 +4,7 @@ import Formulario from './mis_componentes/Formulario'
 import Lista from './mis_componentes/Lista'
 import PiePagina from './mis_componentes/PiePagina'
 import './App.css'
+import Flitros from './mis_componentes/Filtros'
 function cargarFavoritosIniciales() {
   try {
     const guardado = localStorage.getItem('favoritos')
@@ -67,6 +68,19 @@ function App() {
       )
     )
   }
+  // App.jsx — estados nuevos para busqueda y filtro 
+  const [busqueda, setBusqueda] = useState("")
+  const [filtro, setFiltro] = useState("todas") // 'todas' | 'pendientes' | 'completadas'
+  // App.jsx — calcular tareas filtradas 
+  const favoritosFiltrados = favoritos
+    .filter(favorito => {
+      if (filtro === "pendientes") return !favorito.completada
+      if (filtro === "completadas") return favorito.completada
+      return true // 'todas': mostrar todas 
+    })
+    .filter(favorito => {
+      return favorito.texto.toLowerCase().includes(busqueda.toLowerCase())
+    })
   return (
     <div className="app">
 
@@ -76,9 +90,14 @@ function App() {
       />
 
       <Formulario alAgregar={agregarFavorito} />
-
+      <Flitros
+        busqueda={busqueda}
+        alCambiarBusqueda={setBusqueda}
+        filtro={filtro}
+        alCambiarFiltro={setFiltro}
+      />
       <Lista
-        favoritos={favoritos}
+        favoritos={favoritosFiltrados}
         eliminarFavorito={eliminarFavorito}
         alternarCompletada={alternarCompletada}
       />
