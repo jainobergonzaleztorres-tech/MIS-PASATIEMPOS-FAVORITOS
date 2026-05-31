@@ -15,7 +15,19 @@ function App() {
     { id: 3, texto: "one piece", completada: false }
   ])
 
-  //  AGREGAR
+  // Función auxiliar para guardar en React y localStorage
+  const guardarFavoritos = (nuevosFavoritos) => {
+    console.log("Guardando:", nuevosFavoritos)
+
+    setFavoritos(nuevosFavoritos)
+
+    localStorage.setItem(
+      'favoritos',
+      JSON.stringify(nuevosFavoritos)
+    )
+  }
+
+  // AGREGAR
   const agregarFavorito = (textoNuevo) => {
     const favoritoNuevo = {
       id: crypto.randomUUID(),
@@ -23,28 +35,32 @@ function App() {
       completada: false
     }
 
-    setFavoritos(prev => [...prev, favoritoNuevo])
+    guardarFavoritos([...favoritos, favoritoNuevo])
   }
 
-  //  ELIMINAR (FUERA, NO DENTRO)
+  // ELIMINAR
   const eliminarFavorito = (idAEliminar) => {
-    setFavoritos(prev =>
-      prev.filter(f => f.id !== idAEliminar)
+    guardarFavoritos(
+      favoritos.filter(
+        favorito => favorito.id !== idAEliminar
+      )
     )
   }
-  // App.jsx — agregar despues de eliminarTarea 
 
+  // COMPLETAR / VOLVER A PENDIENTE
   const alternarCompletada = (idAAlternar) => {
-    setFavoritos(favoritos.map(favorito => {
-      // Si este es el favorito que queremos modificar 
-      if (favorito.id === idAAlternar) {
-        // Devolver un objeto nuevo con completada invertida 
-        return { ...favorito, completada: !favorito.completada }
-      }
-      // Si no, devolver el favorito tal cual 
-      return favorito
-    }))
+    guardarFavoritos(
+      favoritos.map(favorito =>
+        favorito.id === idAAlternar
+          ? {
+              ...favorito,
+              completada: !favorito.completada
+            }
+          : favorito
+      )
+    )
   }
+
   return (
     <div className="app">
 
