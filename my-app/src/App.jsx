@@ -1,20 +1,27 @@
 import { useState } from 'react'
-
 import Encabezado from './mis_componentes/Encabezado'
 import Formulario from './mis_componentes/Formulario'
 import Lista from './mis_componentes/Lista'
 import PiePagina from './mis_componentes/PiePagina'
-
 import './App.css'
+function cargarFavoritosIniciales() {
+  try {
+    const guardado = localStorage.getItem('favoritos')
+
+    if (guardado === null) return []
+
+    return JSON.parse(guardado)
+
+  } catch (error) {
+    console.error('Error al cargar favoritos:', error)
+    return []
+  }
+}
+
 
 function App() {
-
-  const [favoritos, setFavoritos] = useState([
-    { id: 1, texto: "hombre araña 3", completada: false },
-    { id: 2, texto: "kimetsu no yaiba", completada: true },
-    { id: 3, texto: "one piece", completada: false }
-  ])
-
+  const [favoritos, setFavoritos] = useState(cargarFavoritosIniciales)
+  // ... resto igual 
   // Función auxiliar para guardar en React y localStorage
   const guardarFavoritos = (nuevosFavoritos) => {
     console.log("Guardando:", nuevosFavoritos)
@@ -53,14 +60,13 @@ function App() {
       favoritos.map(favorito =>
         favorito.id === idAAlternar
           ? {
-              ...favorito,
-              completada: !favorito.completada
-            }
+            ...favorito,
+            completada: !favorito.completada
+          }
           : favorito
       )
     )
   }
-
   return (
     <div className="app">
 
