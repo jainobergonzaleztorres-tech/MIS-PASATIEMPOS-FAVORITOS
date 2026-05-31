@@ -1,13 +1,15 @@
 import Item from './Item'
-
-function Lista({ favoritos }) {
+function Lista({ favoritos, eliminarFavorito }) {
   return (
-    <ul className="lista">
+    <ul>
       {favoritos.map(favorito => (
-        <Item key={favorito.id} tarea={favorito} />
+        <Item
+          key={favorito.id}
+          favorito={favorito}
+          eliminarFavorito={eliminarFavorito}
+        />
       ))}
     </ul>
   )
 }
-
 export default Lista
